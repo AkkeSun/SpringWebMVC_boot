@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="kr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>Login View</h3>
+    <form th:action="@{/member/login}" th:object="${memberDto}" method="post">
+        <input type="text" th:field="*{myId}" placeholder="ID">
+        <th:block th:if="${#fields.hasErrors('myId')}" th:errors="*{myId}"></th:block>
+
+        <input type="text" th:field="*{myPwd}" placeholder="PWD">
+        <th:block th:if="${#fields.hasErrors('myPwd')}" th:errors="*{myPwd}"></th:block>
+
+        <input type="submit" value="login">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="kr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Login View</h3>
+<form th:action="@{/redirect/postId}" th:object="${memberDto}" method="post">
+    <input type="text" th:field="*{myId}" placeholder="ID">
+    <th:block th:if="${#fields.hasErrors('myId')}" th:errors="*{myId}"></th:block>
+    <input type="submit" value="아이디 입력 완료">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>File Upload</title>
+</head>
+<body>
+
+<h3>단일파일 업로드</h3>
+<div th:if="${message}">
+    <h2 th:text="${message}"/>
+</div>
+<form method="POST" enctype="multipart/form-data" action="#" th:action="@{/multipartFile}">
+    File: <input type="file" name="myFile"/>
+    <input type="submit" value="Upload"/>
+</form>
+
+<br>
+
+<h3>다중파일 업로드</h3>
+<div th:if="${message2}">
+    <div th:each="myItem, userStat:${message2}">
+        <h2 th:text="${myItem}"}></h2>
+    </div>
+</div>
+<form method="POST" enctype="multipart/form-data" action="#" th:action="@{/multipartFile2}">
+    File: <input multiple="multiple" type="file" name="myFile2"/>
+    <input type="submit" value="Upload"/>
+</form>
+
+<img src="" th:src="@{/upload/test.jpg}">
+
+</body>
